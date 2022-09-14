@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE-edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>TemplateView</title>
+    </head>
+    <body>
+        <header style="display: inline-block;" >
+            <h1>Mis Notas</h1>
+        </header>
+        <div>
+            <a href="{% url 'new' %} " >
+                <button type="button">Nueva Nota</button>
+            </a>
+        </div>
+        <div style="float: left;">
+            <ul>
+            {% for nota in object_list %}
+                <li style="margin-bottom: 20px;"> {{ nota.titulo }} <br> {{ nota.descripcion }} <br> <a href="{% url 'edit' nota.id %} " ><button type="button">Edit</button></a> <a href="{% url 'delete' nota.id %} " ><button type="button">Delete</button></a> </li>
+            {% endfor %}
+            </ul>
+        </div
+    </body>
+</html>
